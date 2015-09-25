@@ -9,6 +9,10 @@ class TravelTime
 
   private def get_response
     key = ENV['GOOGLE_MAPS_KEY']
-    HTTParty.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=#{key}")
+    HTTParty.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Hillsborough+NC&destinations=Durham+NC&key=#{key}")
+  end
+
+  def duration
+    @response["rows"][0]["elements"][0]["duration"]["value"].to_i * 100
   end
 end
