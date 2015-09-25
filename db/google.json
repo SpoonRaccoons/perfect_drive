@@ -1,0 +1,18 @@
+{
+  "destination_addresses": ["Durham, NC, USA"],
+  "origin_addresses": ["Hillsborough, NC 27278, USA"],
+  "rows": [{
+    "elements": [{
+      "distance": {
+        "text": "22.6 km",
+        "value": 22603
+      },
+      "duration": {
+        "text": "18 mins",
+        "value": 1050
+      },
+      "status": "OK"
+    }]
+  }],
+  "status": "OK"
+}
