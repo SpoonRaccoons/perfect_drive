@@ -9,19 +9,23 @@ class Spotify
   end
 
   def artist_name
-    @get_item["tracks"]["items"][0]["artists"][0]["name"]
+    @track_list["tracks"]["items"][0]["artists"][0]["name"]
   end
 
   def artist_uri
-    @get_item["tracks"]["items"][0]["artists"][0]["id"]
+    @track_list["tracks"]["items"][0]["artists"][0]["id"]
   end
 
   def song_name
-    @get_item["tracks"]["items"][0]["name"]
+    @track_list["tracks"]["items"][0]["name"]
   end
 
   def song_duration
-    @get_item["tracks"]["items"][0]["duration_ms"].to_i
+    @track_list["tracks"]["items"][0]["duration_ms"].to_i
+  end
+
+  def total_tracks_duration
+    @track_list["tracks"]["total"]
   end
 
 end
