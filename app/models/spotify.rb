@@ -1,33 +1,47 @@
 class Spotify
 
   def initialize
-    @get_item = get_item
-    @get_track = get_track
+    @track_list = track_list
   end
 
-  def get_item
-    HTTParty.get("https://api.spotify.com/v1/search?q=Dimmu+Borgir&type=artist&limit=1")
+  def track_list
+    HTTParty.get("https://api.spotify.com/v1/search?q=%20genre:%22soul%22&type=track&limit=50")
   end
 
-  def display_all_info
-    @get_item
+  def artist_name
+    @track_list["tracks"]["items"][0]["artists"][0]["name"]
   end
 
-  def get_genre
-    @get_item["artists"]["items"][0]["genres"][0]
+  def all_artist_name
+    all_artists = []
+    (1..49).each do |artist|
+      all_artists << @track_list["tracks"]["items"][0]["artists"][0]["name"]
+    end
+    all_artists
   end
 
-  def get_uri
-    @get_item["artists"]["items"][0]["uri"]
+  def song_name
+    @track_list["tracks"]["items"][0]["name"]
   end
 
-  def get_track
-    track = get_item.get_uri
-    HTTParty.get("https://api.spotify.com/v1/tracks/#{track}?market=")
+  def all_song_names
+    song_names = []
+    (1..49).each do |song|
+      song_names << @track_list["tracks"]["items"][song]["name"]
+    end
+    song_names
   end
 
-  def duration
-    @get_track["duration_ms"]
+  def song_duration
+    @track_list["tracks"]["items"][0]["duration_ms"].to_i
+  end
+
+  def all_song_duration
+    song_duration = []
+    (1..49).each do |duration|
+      song_duration << @track_list["tracks"]["items"][duration]["duration_ms"]
+    end
+    song_duration
   end
 
 end

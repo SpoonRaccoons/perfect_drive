@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'api/v1/search' => 'google_requests#search'
+  get 'api/v1/search' => 'playlist#search'
   get 'spotify/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
