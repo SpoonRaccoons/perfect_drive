@@ -1,5 +1,5 @@
 class SpotifyController < ApplicationController
   def index
-    Spotify.new()
+    render json: Spotify.new().all_song_duration
   end
 end
